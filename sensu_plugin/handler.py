@@ -28,13 +28,15 @@ class SensuHandler(object):
     Class to be used as a basis for handlers.
     '''
     def __init__(self):
-        # Parse the stdin into a global event object
-        stdin = sys.stdin.read()
-        self.read_event(stdin)
-
         # Prepare global settings
         self.settings = get_settings()
         self.api_settings = self.get_api_settings()
+        self.event = {}
+
+    def run(self):
+        # Parse the stdin into a global event object
+        stdin = sys.stdin.read()
+        self.read_event(stdin)
 
         # Filter (deprecated) and handle
         self.filter()

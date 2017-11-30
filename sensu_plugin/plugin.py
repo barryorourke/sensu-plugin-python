@@ -39,8 +39,6 @@ class SensuPlugin(object):
             self.setup()
         (self.options, self.remain) = self.parser.parse_known_args()
 
-        self.run()
-
     def output(self, args):
         print("SensuPlugin: %s" % ' '.join(str(a) for a in args))
 
